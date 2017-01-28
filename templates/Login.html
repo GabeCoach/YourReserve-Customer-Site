@@ -1,0 +1,42 @@
+﻿<div class="main-block" ng-controller="LoginCtrl">
+    <div class="page-heading-two">
+        <div class="container">
+            <h2>Log Into <font color="black">Your</font><font color="green">Reserve</font></h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="ecommerce">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <form class="form-horizontal"  name="LoginForm" role="form">
+                        <div class="form-group">
+                            <label for="inputUserName" class="col-md-2 control-label">UserName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="UserName" id="inputUserName" required placeholder="UserName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control" ng-model="Password" id="inputPassword" required placeholder="Password">
+                            </div>
+                        </div> 
+                    </form>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-6">
+                            <button type="button" ng-click="Login()" class="btn btn-color">Login</button>
+                            <h1>{{UserName.$valid}}</h1>
+                        </div>
+                        <div class="col-md-offset-2 col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="small"><a href="#/ForgotPassword">Forgot Password?</a></li>
+                                <li class="small"><a href="#/Registration">Register</a></li>
+                            </ul>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

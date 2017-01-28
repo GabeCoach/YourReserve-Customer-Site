@@ -1,0 +1,58 @@
+﻿
+    <!-- Shopping items content -->
+    <div class="shopping-content">
+        <!-- Block Title -->
+        <h4><i class="fa fa-user color"></i>&nbsp; My Account&nbsp;</h4>
+        <hr />
+        <div class="shopping-account">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                    <!-- Image -->
+                    <img src="img/user/2.jpg" class="img-responsive img-thumbnail" alt="" />
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-8">
+                    <!-- Your Name / Heading -->
+                    <h4>{{UserInfo.FirstName + " " + UserInfo.LastName}}</h4>
+                    <div class="address">
+                        <!-- Address -->
+                        <p>
+                            {{UserInfo.Address}}<br />
+                            {{UserInfo.City}}, {{UserInfo.State_Province}} {{UserInfo.ZipCode}}<br />
+                        </p>
+                        <!-- Phone number -->
+                        <span><i class="fa fa-phone color"></i>&nbsp; {{UserInfo.PhoneNumber}}</span><br />
+                        <!-- Email Address -->
+                        <span><i class="fa fa-envelope color"></i>&nbsp; {{UserInfo.Email}}</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <!-- Recent Purchase Table -->
+            <div class="rptable table-responsive">
+                <table class="table table-bordered">
+                    <!-- Table Header -->
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Party Amount</th>
+                            <th>Restaurant</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody>
+                        <tr ng-repeat="Res in Reservations">
+                            <td>{{Res.Date | date: "longDate"}}</td>
+                            <td>{{Res.Time}}</td>
+                            <td>{{Res.PartyAmount}}</td>
+                            <td>{{Res.Restaurant}}</td>
+                            <td><button class="btn btn-warning btn-xs" type="button" ng-click="editReservation(Res.ReservationID)">Edit</button></td>
+                            <td><button class="btn btn-danger btn-xs" type="button" ng-click="cancelReservation(Res.ReservationID)">Cancel</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,99 @@
+﻿<div ng-controller="ReservationsCtrl">
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-right'}"></toaster-container>
+    <div ng-show="!RestChosen">
+        <div class="error">
+            <!-- Heading -->
+            <h2 class="color"><strong>Please <a href="#/SearchRestaurant">Choose</a> a Restaurant First.</strong></h2>
+        </div>
+    </div>
+    <div ng-show="RestChosen">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Reserve a table at {{Restaurant.RestaurantName}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <input class="form-control" type="hidden" id="txtUser" ng-model="Reserve.UserID" />
+
+                <label>First Name:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="First Name" id="txtFirstName" ng-model="Reserve.FirstName" />
+                </div>
+                <label>Last Name:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="Last Name" id="txtLastName" ng-model="Reserve.LastName" />
+                </div>
+                <label>Date:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="Reserve.Date" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" aria-label="Right Align" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <label>Party Amount:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <select class="form-control"  ng-model="Reserve.PartyAmount">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+               
+                <label>Available Times:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <select class="form-control" type="text" placeholder="Pick a Time" id="txtTime" ng-model="Reserve.Time">
+                        <option ng-repeat="Time in availableTimes">{{Time}}</option>
+                    </select>
+                </div>
+                <label>Phone:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="Phone" id="txtPhone" ng-model="Reserve.Phone" />
+                </div>
+                <label>Email:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="E-Mail" id="txtEmail" ng-model="Reserve.Email" />
+                </div>
+                <label>Special Request:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <textarea class="form-control" type="text" placeholder="Requests" id="txtRequest" ng-model="Reserve.Request" />
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-color" type="button" id="btnSubmit" ng-click="SubmitReservation()">Submit</button>&nbsp;
+                    <button class="btn btn-white" ng-click="ResetForm()" type="button" id="btnReset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>

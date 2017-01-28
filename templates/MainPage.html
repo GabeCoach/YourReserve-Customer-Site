@@ -1,0 +1,49 @@
+﻿<style>
+    .jumbotron {
+    /* add bootstrap jumbotron background image */
+    background: url("img/YourReservation Pictures/MainCarouselPicture.jpg");
+    /* change bootstrap jumbotron text color */
+    color: #FFF;
+    height: 450px;
+    width: 1150px;
+}
+</style>
+
+<div ng-controller="MainPageCtrl">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="block bg-warning">
+                <h4><a href="#/SearchRestaurant"><font color="green">Reserve a table with Your Reserve</font></a></h4>
+                <p class="black font-lato-italic"><b><font">Welcome to YourReserve. Reserve a table in restaurants near your location or across the country. Look at reviews about restaurants from other customers, and view some of the top-rated places to eat.</font> </b></p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <img src="img/YourReservation Pictures/MainCarouselPicture.jpg" height="400" width="100%" />
+        </div>
+    </div>
+
+        <div class="block-heading-two text-center">
+            <h3><span>Top Rated Restaurants in {{Location.city}}</span></h3>
+        </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12 travel-box" ng-repeat="Rest in Restaurants">
+            <div class="travel-box-inner">
+                <div class="travel-box-thumb">
+                    <img src="img/YourReservation Pictures/PagePicture.jpg" alt="2" class="img-responsive" data-selector="img, a" style="outline: none; cursor: inherit;">
+                </div>
+                <div class="travel-box-content">
+                    <div class="travel-text">
+                        <div class="travel-city"><b><a href="" ng-click="goToReserve(Rest.RestaurantID)"><span style="font-size: xx-large; color: white">{{Rest.Restaurant}}</span></a></b></div>
+                        <div class="travel-title">
+                            <!--<h4 class="pull-left" data-selector="h4" style="outline: none; cursor: inherit;">3 days 2 nights </h4>-->
+                            <span class="pull-right" data-selector="span:not(.fa,a)" style="outline: none; cursor: inherit;">
+                                <b>Average Rating: {{Rest.AverageRating}}</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+</div>				

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html ng-app="YourReservation">
+<head>
+    <meta charset="utf-8">
+    <title>Your Reserve</title>
+    <link rel="icon" href="img/MyTable Pictures/favicon.ico" />
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+
+    <style>
+        .map-canvas {
+            height: 400px;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Magnific Popup -->
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <!-- Owl carousel -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- CSS for this page -->
+    <link href="css/styles/restaurant.css" rel="stylesheet" />
+    <!--<link href="css/main.css" rel="stylesheet" />-->
+    <!--<link href="css/main-2.css" rel="stylesheet" />
+    <link href="css/main - Copy.css" rel="stylesheet" />-->
+    <link href="css/color.css" rel="stylesheet" />
+    <link href="css/colors.css" rel="stylesheet" />
+    <link href="css/scrolling-nav.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+    <link href="css/bootstrap-select.css" rel="stylesheet" />
+
+    <link href="css/styles/ecommerce.css" rel="stylesheet" />
+    <!-- Base style -->
+    <link href="css/styles/style.css" rel="stylesheet">
+    <link href="css/style-20.css" rel="stylesheet">
+    <!-- Skin CSS -->
+    <link href="css/styles/skin-brown.css" rel="stylesheet" />
+
+    <!-- Custom CSS. Type your CSS code in custom.css file -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!--Toaster-->
+    <link href="css/toaster.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 65px;
+        }
+
+        .travel-box {
+            margin-bottom: 30px;
+        }
+
+        .travel-box-inner {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .travel-box-content {
+            background-color: rgba(47,31,102,0.20);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .travel-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 30px;
+            width: 100%;
+            padding-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .travel-city {
+            display: inline-block;
+            padding: 8px 17px;
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 10px;
+        }
+
+        .travel-title h4 {
+            font-size: 16px;
+        }
+
+        .travel-title span {
+            position: relative;
+            top: 10px;
+        }
+
+        .travel-price {
+            transform: scale(0);
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            -o-transform: scale(0);
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            display: inline-block;
+            float: right;
+            padding-top: 22px;
+        }
+
+            .travel-price span {
+                font-size: 24px;
+            }
+
+                .travel-price span sub {
+                    font-size: 14px;
+                    position: relative;
+                    top: 0px;
+                }
+
+        .travel-box-inner:hover .travel-price {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+        }
+    </style>
+
+    <!-- Favicon -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>c
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-ui-router-uib-modal.js"></script>
+    <script src="js/event.min.js"></script>
+    <script src="js/ui-map.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
+    <script src="app/app.js"></script>
+    <script src="app/app2.js"></script>
+    <script src="app/services.js"></script>
+    <script src="js/webix.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
+
+    <script src="app/ReservationsController.js"></script>
+    <script src="app/BaseController.js"></script>
+    <script src="app/SearchRestaurantsController.js"></script>
+    <script src="app/MainPageController.js"></script>
+    <script src="app/RestaurantReviewsController.js"></script>
+    <script src="app/LoginController.js"></script>
+    <script src="app/RegistrationController.js"></script>
+    <script src="app/ReviewsController.js"></script>
+    <script src="app/CustomerProfileController.js"></script>
+    <script src="app/EditCustomerReservationController.js"></script>
+    <script src="app/ForgotPasswordController.js"></script>
+    <script src="app/ModalInstancesController.js"></script>
+    <script src="js/toaster.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+    <!-- Bootstrap JS -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!-- Placeholders JS -->
+    <script src="js/placeholders.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Google Maps API -->
+    <!-- Javascript for this page -->
+    <!-- Custom JS. Type your JS code in custom.js file -->
+    <script src="js/custom.js"></script>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Outer Starts -->
+
+    <nav class="navbar navbar-nav bg-brown navbar-fixed-top" role="navigation">
+        <div class="container" ng-controller="BaseCtrl">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><b><font color="black">Your</font> <font color="green">Reserve</font></b></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse" >
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/Home"><span><font color="black"><b>Home</b></font></span></a>
+                    </li>
+                    <li>
+                        <a href="#/SearchRestaurant"><span><font color="black"><b>Find a Restaurant</b></font></span></a>
+                    </li>
+                    <li>
+                        <a href="#/Reviews"><span><font color="black"><b>Reviews</b></font></span></a>
+                    </li>
+                    <li>
+                        <a href="#/Reservations"><span><font color="black"><b>Reserve a Table</b></font></span></a>
+                    </li>
+                    <li>
+                        <a href="#/ForRestaurants"><span><font color="black"><b>For Restaurants</b></font></span></a>
+                    </li>
+                    <li ng-if="LoggedIn == ''">
+                        <a href="#/Registration"><span><font color="black"><b>Register</b></font></span></a>
+                    </li>
+                    <li ng-if="LoggedIn != ''">
+                        <a href="#/Profile"><span><font color="black"><b>My Account</b></font></span></a>
+                    </li>
+                    <li ng-if="LoggedIn == ''">
+                        <a href="#/Login"><span><font color="black"><b>Sign In</b></font></span></a>
+                    </li>
+                    <li ng-if="LoggedIn != ''">
+                        <a class="page-scroll" href="" ng-click="LogOut()"><span><font color="black"><b>Sign Out</b></font></span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Main content starts -->
+    <section>
+        <div class="main-block">
+            <div class="container container-fluid">
+                <div class="row">
+                    <div ui-view id="contentPanel">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Starts -->
+
+    <footer>
+        <!-- Container -->
+        <div class="container">
+            <!-- Footer Content -->
+            <!-- Paragraph -->
+            <p class="pull-left">Copyright &copy;Entellication 2016 - <a href="http://www.entellication.com" target="_blank">Entellication</a></p>
+            <!-- Clearfix -->
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+
+    <!-- Footer Ends -->
+    <!-- Outer Ends -->
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-angle-up bg-color"></i></a></span>
+
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Placeholders JS -->
+    <script src="js/placeholders.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Javascript for this page -->
+    <!-- Custom JS. Type your JS code in custom.js file -->
+    <script src="js/custom.js"></script>
+
+    <!--
+    Style switcher. This is just for demo purpose only.
+    If you don't want remove the below line.
+    Some of the features of style switcher won't work on offline. THey only work when you upload it to server
+    -->
+    <!-- <script src="style-switcher/style-switcher.js"></script> -->
+
+</body>
+</html>

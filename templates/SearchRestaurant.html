@@ -1,0 +1,88 @@
+﻿
+<div ng-controller="SearchRestaurantsCtrl">
+    <div class="restaurant">
+        <!-- Carousel ends -->
+        <div class="col-md-4">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="Search.SearchRestaurant" placeholder="Find A Restaurant">
+                <span class="input-group-btn">
+                    <button class="btn btn-color btn-sm" type="button" ng-click="SearchRestaurants(Search.SearchRestaurant)">Search</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Restaurants in {{Location.city}}:</h3>
+            </div>
+            <div class="col-sm-6">
+                <pager total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></pager>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Image Box #6 Item -->
+            <div class="restaurant">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" ng-repeat="Rest in Restaurants.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))" ng-show="UserLocation.City == Location.City">
+                        <!-- Restaurant Item -->
+                        <div class="rest-item br-grey br-size-1">
+                            <!-- Item's image -->
+                            <img class="img-responsive" src="img/YourReservation Pictures/FoodImage4.jpg" alt="" />
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><a href="#">{{Rest.RestaurantName}}</a></h4>
+                                <!-- price -->
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-color">
+                                <a class="btn btn-transparent" ng-click="goToReservation(Rest.RestaurantID)">Reserve a Table</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+      </div>
+
+    <!-- Image Box #6 Ends -->
+
+    <!--<div class="row">
+        <div class="col-md-12">
+
+            <div class="restaurant">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>Restaurants Near You:</h3>
+                    </div>
+                    <div class="col-md-12" id="map">
+                        <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <br />
+            </div>
+        </div>
+        <br />
+    </div>-->
+
+
+    <!-- Main content ends -->
+    <!-- Foot Starts -->
+
+    <!-- Footer Ends -->
+    <!-- Outer Ends -->
+    <!-- Scroll to top -->
+    <!--<span class="totop"><a href="#"><i class="fa fa-angle-up bg-color"></i></a></span>-->
+</div>
+</div>

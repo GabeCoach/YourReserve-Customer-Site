@@ -1,0 +1,359 @@
+﻿ï»¿<!DOCTYPE html>
+<html ng-app="YourReservation2">
+<head>
+    <meta charset="utf-8">
+    <title>Restaurant Reviews</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Magnific Popup -->
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <!-- Owl carousel -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- CSS for this page -->
+    <!-- Real estate CSS -->
+    <link href="css/styles/real-estate.css" rel="stylesheet">
+
+    <!-- Base style -->
+    <link href="css/styles/style.css" rel="stylesheet">
+    <!-- Skin CSS -->
+    <link href="css/styles/skin-brown.css" rel="stylesheet" id="color_theme">
+
+
+    <!-- Custom CSS. Type your CSS code in custom.css file -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
+
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+
+<!-- Add class "boxed" along with body for boxed layout. -->
+<!-- Add "pattern-x" (1 to 5) for background patterns. -->
+<!-- Add "img-x" (1 to 5) for background images. -->
+<body>
+    <div ng-controller="RestReviewsCtrl">
+        <script type="text/ng-template" id="ReservationModal.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Reserve a Table</h3>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" type="hidden" id="txtUser" ng-model="Reserve.UserID" />
+
+                <label>First Name:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="First Name" id="txtFirstName" ng-model="Reserve.FirstName" />
+                </div>
+                <label>Last Name:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="Last Name" id="txtLastName" ng-model="Reserve.LastName" />
+                </div>
+                <label>Restaurant:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <select class="form-control" type="text" placeholder="Choose a Restaurant" id="txtRestaurant" ng-model="Reserve.Restaurants">
+                        <option ng-repeat="Restaurant in Restaurant" value="{{Restaurant.RestaurantID}}">{{Restaurant.RestaurantName}}</option>
+                    </select>
+                </div>
+                <label>Date:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" aria-label="Right Align" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Time:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <select class="form-control" type="text" placeholder="Pick a Time" id="txtTime" ng-model="Reserve.Time"></select>
+                </div>
+                <label>Party Amount:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="Party Amount" id="txtPartyAmount" ng-model="Reserve.Party" />
+                </div>
+                <label>Phone:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="Phone" id="txtPhone" ng-model="Reserve.Phone" />
+                </div>
+                <label>Email:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <input class="form-control" type="text" placeholder="E-Mail" id="txtEmail" ng-model="Reserve.Email" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Special Request:</label>
+                <div class="form-group">
+                    <!-- Form input -->
+                    <textarea class="form-control" type="text" placeholder="Requests" id="txtRequest" ng-model="Reserve.Request" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-brown" type="button" ng-click="SubmitReservation()">Submit</button>
+                <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+    </div>
+    <!-- Outer Starts -->
+    <div class="outer">
+
+        <!-- Top bar starts -->
+        <!-- Top bar ends -->
+        <!-- Header two Starts -->
+        <!-- Header two ends -->
+        <!-- Main content starts -->
+
+        <div class="main-block real-estate" ng-controller="RestReviewsCtrl">
+
+            <!-- property search big form -->
+            <div class="re-big-form">
+                <div class="container">
+                    <h2>Write a Review</h2>
+                    <!-- Nav tab style 2 starts -->
+                    <div class="nav-tabs-two">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-1" data-toggle="tab">About</a></li>
+                            <li><a href="#tab-2" data-toggle="tab">Write a Review</a></li>
+                        </ul>
+                        <!-- Tab content -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab-1">
+
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>{{Restaurant.RestaurantName}}</h2>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="wrap-3">{{RestaurantsAbout.About}}</p><br />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span class="agency-contact"><i class="fa fa-phone circle-2 bg-red"></i>&nbsp; {{Contact.PhoneNumber}}</span> <br />
+                                                    <span class="agency-contact"><i class="fa fa-envelope circle-2 bg-blue"></i>&nbsp; {{Contact.Email}}</span> <br />
+                                                    <span class="agency-contact"><i class="fa fa-globe circle-2 bg-green"></i>&nbsp; <a href="#" class="black">www.mysite.com</a></span><br />
+                                                    <span class="agency-contact"><i class="fa fa-map-marker circle-2 bg-brown"></i>&nbsp; <a href="#" class="black">{{Location.Address}}, {{Location.City}}, {{Location.State_Province}} {{Location.ZipCode}}</a></span><br /><br />
+                                                    <button type="button" class="btn btn-color" ng-click="open()">Reserve a Table</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="tab-pane fade" id="tab-2">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="input-27">Review Name:</label>
+                                                <input type="text" class="form-control" id="input-27" placeholder="Review Name" ng-model="RestReviews.Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input-27">Write Your Review:</label>
+                                                <textarea type="text" class="form-control" id="input-27" placeholder="Write Your Review" ng-model="RestReviews.Content"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input-27">Rating:</label>
+                                                <select ng-model="RestReviews.Ratings" id="input-27">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-color" ng-click="SubmitReview()">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <br />
+
+                <!-- Block heading two -->
+                <div class="block-heading-two">
+                    <h3><span>Reviews For {{Restaurant.RestaurantName}}</span></h3>
+                </div>
+
+                <!-- Actual content -->
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div class="rs-agency">
+
+                            <!-- Real estate agency details -->
+
+                            <div class="agency-item" ng-repeat="Review in Reviews.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                                <!-- Name -->
+                                <h4><a href="#">{{Review.ReviewName}}</a></h4>
+                                <!-- Address -->
+                                <!-- Contact details -->
+                                <!-- About Agency -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="wrap-3">{{Review.ReviewContent}}</p>
+                                        <p class="tag">{{Review.ReviewDateTime | date: format: timezone}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <!-- Take action sidebar block -->
+                        <div class="sidebar">
+
+                            <!-- Search Widget -->
+                            <div class="s-widget">
+                                <!-- Heading -->
+                                <h5><i class="fa fa-search color"></i>&nbsp; Search</h5>
+                                <!-- Widgets Content -->
+                                <div class="widget-content search">
+                                    <form role="form">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" ng-model="RestReviews.Search">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-color" type="button" ng-click="SearchRestaurants(RestReviews.Search)">Search</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Hot Properties Widget -->
+                            <div class="s-widget">
+                                <!-- Heading -->
+                                <h5><i class="fa fa-building color"></i>&nbsp; Other Restaurant Reviews</h5>
+                                <!-- Widgets Content -->
+                                <div class="widget-content hot-properties">
+                                    <ul class="list-unstyled">
+                                        <li ng-repeat="Rest in Restaurants.slice(((currentPageRest-1)*itemsPerPageRest), ((currentPageRest)*itemsPerPageRest))">
+                                            <!-- Image -->
+                                            <img class="img-responsive img-thumbnail" src="img/real-estate/small/1.jpg" alt="" />
+                                            <!-- Heading -->
+                                            <h4><a href="RestaurantReviews.html?id={{Rest.RestaurantID}}">{{Rest.RestaurantName}}</a></h4>
+                                            <!-- Price -->
+
+                                            <div class="clearfix"></div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <uib-pager total-items="totalItems" ng-model="currentPageRest" items-per-page="itemsPerPage"></uib-pager>
+                            </div>
+
+                            <!-- Gallery Widget -->
+                            <!-- Social media widget -->
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <footer>
+            <!-- Container -->
+            <div class="container">
+                <!-- Footer Content -->
+                <!-- Paragraph -->
+                <p class="pull-left">Copyright &copy;Entellication 2016 - <a href="http://www.entellication.com" target="_blank">Entellication</a></p>
+                
+                <!-- Clearfix -->
+                <div class="clearfix"></div>
+            </div>
+        </footer>
+
+        <!-- Footer Ends -->
+
+    </div>
+
+    <!-- Outer Ends -->
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-angle-up bg-color"></i></a></span>
+
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Placeholders JS -->
+    <script src="js/placeholders.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="js/html5shiv.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Javascript for this page -->
+    <!-- G Map JS -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/jquery.gmap.min.js"></script>
+    <!-- Real estate custom -->
+    <script src="js/real-estate.js"></script>
+
+    <!-- Custom JS. Type your JS code in custom.js file -->
+    <script src="js/custom.js"></script>
+
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="app/app2.js"></script>
+    <script src="app/RestaurantReviewsController.js"></script>
+
+
+
+    <!--
+    Style switcher. This is just for demo purpose only.
+    If you don't want remove the below line.
+    Some of the features of style switcher won't work on offline. THey only work when you upload it to server
+    -->
+
+</body>
+</html>

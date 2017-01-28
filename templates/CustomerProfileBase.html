@@ -1,0 +1,27 @@
+﻿<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-right'}"></toaster-container>
+<div class="container" ng-controller="CustomerProfileCtrl">
+    <!-- Actual content -->
+    <div class="ecommerce">
+
+        <div class="row">
+            <div class="col-md-9 col-sm-8 col-md-push-3 col-sm-push-4">
+                <div ui-view></div>
+            </div>
+
+                <div class="col-md-3 col-sm-4 col-md-pull-9 col-sm-pull-8">
+
+                    <!-- Shopping Sidebar -->
+                    <div class="sidebar">
+
+                        <!-- Heading -->
+                        <h2>Navigation</h2>
+                        <!-- Sidebar Menu -->
+                        <ul class="account-nav">
+                            <li  ui-sref-active="current" class="active"><a data-toggle="tab" ng-click="openMyAccount()" href="">My Account</a></li>
+                            <li><a data-toggle="tab" ng-click="openEditProfile()" href="">Edit Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

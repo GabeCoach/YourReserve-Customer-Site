@@ -1,0 +1,100 @@
+﻿<div class="main-block" ng-controller="RegistrationCtrl">
+    <div class="container">
+        <div class="ecommerce">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <h4>Register for <font color="black">Your</font><font color="green">Reserve</font></h4>
+                    <hr />
+                    <form class="form-horizontal" ng-submit="Register()" name="RegistrationForm" role="form" novalidate>
+                        <div class="form-group">
+                            <label for="inputFirstName" class="col-md-2 control-label">FirstName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegFirstName" required id="inputFirstName" placeholder="FirstName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastName" class="col-md-2 control-label">LastName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegLastName" required id="inputLastName" placeholder="LastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-md-2 control-label">Email</label>
+                            <div class="col-md-5">
+                                <input type="email" class="form-control" ng-model="RegEmail" required id="inputEmail1" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-md-2 control-label">Phone Number</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegPhoneNumber" id="inputPhone" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-md-2 control-label">City</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegCity" required id="inputCity" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputState_Province" class="col-md-2 control-label">State/Province</label>
+                            <div class="col-md-5">
+                                <select class="form-control" ng-model="RegState_Province" required id="inputState_Province">
+                                    <option disabled selected="selected">Select State</option>
+                                    <option ng-repeat="state in States">{{state}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCountry" class="col-md-2 control-label">Country</label>
+                            <div class="col-md-5">
+                                <select class="form-control" ng-model="RegCountry" required id="inputCountry">
+                                    <option disabled selected="selected">Select Country</option>
+                                    <option ng-repeat="country in Countries">{{country.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress" class="col-md-2 control-label">Address</label>
+                            <div class="col-md-5">
+                                <textarea class="form-control" ng-model="RegAddress" required id="inputAddress" rows="3" placeholder="Address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputZip" class="col-md-2 control-label">Zip Code</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegZipCode" required id="inputZip" placeholder="Zip Code">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserName" class="col-md-2 control-label">UserName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="RegUserName" required id="inputUserName" placeholder="UserName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control" ng-model="RegPassword" required id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfirm" class="col-md-2 control-label">Confirm Password</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control" ng-model="RegConfirm" required id="inputConfirm" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-6">
+                                <button type="submit" class="btn btn-color">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                                <h1>{{RegistrationForm.RegFirstName.$dirty}}</h1>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

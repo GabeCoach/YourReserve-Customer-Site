@@ -1,0 +1,58 @@
+﻿<div class="main-block" ng-controller="CustomerProfileCtrl">
+    <div class="container">
+        <div class="ecommerce">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <h4>Edit Your Profile</h4>
+                    <hr />
+                    <form class="form-horizontal" ng-submit="UpdateProfileInfo()" name="RegistrationForm" role="form" novalidate>
+                        <div class="form-group">
+                            <label for="inputFirstName" class="col-md-2 control-label">FirstName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="Edit.FirstName" required id="inputFirstName" placeholder="FirstName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastName" class="col-md-2 control-label">LastName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="Edit.LastName" required id="inputLastName" placeholder="LastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-md-2 control-label">Email</label>
+                            <div class="col-md-5">
+                                <input type="email" class="form-control" ng-model="Edit.Email" required id="inputEmail1" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-md-2 control-label">Phone Number</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="Edit.PhoneNumber" id="inputPhone" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserName" class="col-md-2 control-label">UserName</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" ng-model="Edit.UserName" required id="inputUserName" placeholder="UserName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control" ng-model="Edit.Password" required id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>                        
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-6">
+                                <button type="submit" class="btn btn-color">Update</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                                <h1>{{RegistrationForm.RegFirstName.$dirty}}</h1>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
