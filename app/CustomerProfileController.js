@@ -1,5 +1,5 @@
 ﻿/*
-    Description: This angular controller handles all of the Custoner profile functionality. 
+    Description: This angular controller handles all of the Customer profile functionality. 
     Author: Gabriel Coach
     Contact: gsctca@gmail.com
 */

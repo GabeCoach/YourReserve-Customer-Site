@@ -1,17 +1,24 @@
-﻿
+﻿/*
+    Description: This angular controller handles all of the Registration functionality. 
+    Author: Gabriel Coach
+    Contact: gsctca@gmail.com
+*/
 YourReserve.controller('RegistrationCtrl', ['$scope', '$http', '$uibModal', 'YRService', function ($scope, $http, $uibModal, YRService) {
+    //Get list of countries from theCountries JSON file
     YRService.GetCountries()
     .success(function (response) {
         YRService.serviceCountries = response;
         $scope.Countries = YRService.serviceCountries;
     })
 
+    //Get list of states from the States JSON file
     YRService.GetStates()
     .success(function (response) {
         YRService.serviceStates = response;
         $scope.States = YRService.serviceStates;
     })
 
+    //Register a user in the Database.
     $scope.Register = function () {
         var Obj = {};
 
